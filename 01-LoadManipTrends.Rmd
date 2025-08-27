@@ -1,0 +1,53 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+# Getting Started {#DataManip3}
+
+```{r tidyr3, echo = FALSE, message = FALSE, warning = FALSE}
+
+library(knitr)
+opts_chunk$set(tidy.opts=list(width.cutoff=50), tidy = FALSE)
+
+```
+
+## Setup
+
+The setup files will get you ready for your analysis. It loads you libraries, needed tables, created directories for your outputs, and assigns some parameter values. 
+
+Also assign max year of the analysis. 
+
+```{r setup}
+
+min.yr <-2018
+max.yr <- 2025 #needs changes with each analysis
+ID<- "dethier" #change this to your user ID. You will be prompted for a password. 
+
+source("00-setup.R")
+
+```
+
+## Choose a collection 
+
+```{r downloaddata, echo = TRUE, message = FALSE}
+
+#select your collection manually for data cleaning. Here we select them all. 
+collection <- c("ABOWLS", "QCOWLS", "ATOWLS", "BCOWLS", "ONOWLS", "SKOWLS", "MBOWLS")
+
+
+```
+
+## Data manipulations 
+
+```{r data manip}
+
+#define the target species
+sp.list<-c("Great Horned Owl", "Boreal Owl", "Northern Saw-whet Owl", "Barred Owl", "Great Grey Owl")
+
+#run cleaning scripts
+source("i-datamanip.R") #Full count period, sum of target species per route
+
+```
+

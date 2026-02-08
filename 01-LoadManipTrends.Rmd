@@ -1,17 +1,3 @@
----
-output: html_document
-editor_options: 
-  chunk_output_type: console
----
-
-# Getting Started {#DataManip3}
-
-```{r tidyr3, echo = FALSE, message = FALSE, warning = FALSE}
-
-library(knitr)
-opts_chunk$set(tidy.opts=list(width.cutoff=50), tidy = FALSE)
-
-```
 
 ## Setup
 
@@ -23,7 +9,7 @@ Also assign max year of the analysis.
 
 min.yr <-2018
 max.yr <- 2025 #needs changes with each analysis
-ID<- "dethier" #change this to your user ID. You will be prompted for a password. 
+ID<- "YOURUSERID" #change this to your NatureCounts user ID. You will be prompted for a password. 
 
 source("00-setup.R")
 
@@ -44,7 +30,10 @@ collection <- c("ABOWLS", "QCOWLS", "ATOWLS", "BCOWLS", "ONOWLS", "SKOWLS", "MBO
 ```{r data manip}
 
 #define the target species
-sp.list<-c("Great Horned Owl", "Boreal Owl", "Northern Saw-whet Owl", "Barred Owl", "Great Grey Owl")
+# sp.list<-c("Great Horned Owl", "Boreal Owl", "Northern Saw-whet Owl", "Barred Owl", "Great Grey Owl")
+
+#All species in the NOS Collections with >200 records. Many of these will still not have enough data to model, but pulling out anyways. 
+sp.list<-c("American Woodcock", "Barred Owl", "Boreal Owl", "Common Poorwill", "Eastern Screech-Owl", "Flammulated Owl", "Great Gray Owl", "Great Horned Owl", "Long-eared Owl", "Northern Saw-whet Owl", "Ruffed Grouse", "Western Screech-Owl", "Wilson's Snipe" )
 
 #run cleaning scripts
 source("i-datamanip.R") #Full count period, sum of target species per route

@@ -14,7 +14,7 @@ if(class(data) == 'try-error'){
 } #end else
 
 #Now that the data are downloaded we will want to select the columns needed for the analysis. You may not have all the variables below if you didn't change the `field_set` to "extend". That is OK! You may not need all the auxiliary data for your analytical purposes.
-in.data<-data %>% select(SamplingEventIdentifier, SurveyAreaIdentifier,RouteIdentifier, Locality, SiteCode, collection, survey_day, survey_month, survey_year, survey_week, protocol_id, CollectorNumber, EffortUnits1, EffortMeasurement1, EffortUnits3, EffortMeasurement3, EffortUnits5, EffortMeasurement5, EffortUnits11, EffortMeasurement11, EffortUnits14, EffortMeasurement14, species_id, CommonName, ScientificName, latitude, longitude, bcr, StateProvince, ObservationDescriptor, ObservationCount)
+in.data<-data %>% select(SamplingEventIdentifier, SurveyAreaIdentifier,RouteIdentifier, Locality, SiteCode, collection, survey_day, survey_month, survey_year, survey_week, protocol_id, CollectorNumber, EffortUnits1, EffortMeasurement1, EffortUnits3, EffortMeasurement3, EffortUnits5, EffortMeasurement5, EffortUnits11, EffortMeasurement11, EffortUnits14, EffortMeasurement14, species_id, CommonName, ScientificName, latitude, DecimalLatitude, longitude, DecimalLongitude, bcr, StateProvince, ObservationDescriptor, ObservationCount)
 
 #Notice here that we don't keep all the ObservationCount fields. There are more that could be retained that capture owls call during each broadcast period.
 #For the purposes of this analysis, we keep ObservationCount which is the full listening periods with call playback

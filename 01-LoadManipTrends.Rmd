@@ -9,7 +9,8 @@ Also assign max year of the analysis.
 
 min.yr <-2018
 max.yr <- 2025 #needs changes with each analysis
-ID<- "YOURUSERID" #change this to your NatureCounts user ID. You will be prompted for a password. 
+summary.level <- "stop" #can be "stop" or "route" depending the level at which you want summary.
+ID<- "rdjmacklin" #change this to your NatureCounts user ID. You will be prompted for a password. 
 
 source("00-setup.R")
 
@@ -36,7 +37,13 @@ collection <- c("ABOWLS", "QCOWLS", "ATOWLS", "BCOWLS", "ONOWLS", "SKOWLS", "MBO
 sp.list<-c("American Woodcock", "Barred Owl", "Boreal Owl", "Common Poorwill", "Eastern Screech-Owl", "Flammulated Owl", "Great Gray Owl", "Great Horned Owl", "Long-eared Owl", "Northern Saw-whet Owl", "Ruffed Grouse", "Western Screech-Owl", "Wilson's Snipe" )
 
 #run cleaning scripts
-source("i-datamanip.R") #Full count period, sum of target species per route
+if(summary.level == "route") {
+  source("i-datamanip.R") #Full count period, sum of target species per route
+} else if(summary.level == "stop") {
+  source("i-datamanip-stop.R")
+} else {
+  print("invalid summary.level value")
+}
 
 ```
 
